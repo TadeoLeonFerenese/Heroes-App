@@ -1,1 +1,2 @@
-export * from "./gerHeroesByPublisher";
+export * from "./getHeroesByPublisher";
+export * from "./getHeroById";

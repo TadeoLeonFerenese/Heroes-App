@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
-// const charactersByHero = ({ alter_ego, characters }) => {
-//   if (alter_ego === characters) return <></>;
-//   return <p>{}characters</p>;
-// };
+const CharactersByHero = ({ alter_ego, characters }) => {
+  // if ( alter_ego === characters ) return (<></>);
+  // return <p>{ characters }</p>
+  return alter_ego === characters ? <></> : <p>{characters}</p>;
+};
 
 export const HeroCard = ({
   id,
@@ -15,10 +16,10 @@ export const HeroCard = ({
 }) => {
   const heroImageUrl = `/assets/heroes/${id}.jpg`;
 
-  // const charactersByHero = <p>{characters}</p>;
+  // const charactesByHero =  (<p>{ characters }</p>);
 
   return (
-    <div className="col">
+    <div className="col animate__animated animate__fadeIn">
       <div className="card">
         <div className="row no-gutters">
           <div className="col-4">
@@ -27,15 +28,20 @@ export const HeroCard = ({
 
           <div className="col-8">
             <div className="card-body">
-              <h5 className="card-title">{superhero} </h5>
+              <h5 className="card-title">{superhero}</h5>
               <p className="card-text">{alter_ego}</p>
-              {alter_ego !== characters && <p>{characters}</p>}
+
+              {/* {
+                                ( alter_ego !== characters ) && charactesByHero
+                                ( alter_ego !== characters ) && <p>{ characters }</p>
+                            } */}
+              <CharactersByHero characters={characters} alter_ego={alter_ego} />
 
               <p className="card-text">
                 <small className="text-muted">{first_appearance}</small>
               </p>
-              {/* <charactersByHero characters={characters} alter_ego={alter_ego} /> */}
-              <Link to={`/heropage/${id}`}>Mas ...</Link>
+
+              <Link to={`/HeroPage/${id}`}>Más..</Link>
             </div>
           </div>
         </div>
